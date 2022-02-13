@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <section class="box-container" data-state="hidden">
+      <div start class="start-container">
+        <h1 class="Welcome">Welcome to this Quiz about JavaScript. Please press the button to start the game.</h1>
+        <button class="button start-button">Start</button>
+      </div>
+      <div class="choice-container" data-state="hidden">
+        <h1 id="question" data-state="hidden"></h1>
+
+        <div class="button" id="choice1" data-number="1" onclick="rightOrWrong('A')"></div>
+
+        <div class="button" id="choice2" data-number="2" onclick="rightOrWrong('B')"></div>
+
+        <div class="button" id="choice3" data-number="3" onclick="rightOrWrong('C')"></div>
+
+        <div class="button" id="choice4" data-number="4" onclick="rightOrWrong('D')"></div>
+      </div>
+
+      <div id="score-container">
+        <h3 id="scoreText"></h3>
+        <input type="text" name="name" placeholder="Your Name Here!" />
+      </div>
+      <h3 class="time"></h3>
+    </section>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
