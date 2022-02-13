@@ -15,7 +15,7 @@
 
 ### Screenshot:
 
-![image](https://github.com/ggruiz7/timed-quiz/blob/main/assets/images/timed-quiz.jpg)
+![image](https://github.com/ggruiz7/timed-quiz/blob/main/assets/images/timed-quiz.png)
 
 ### Future Development:
 
