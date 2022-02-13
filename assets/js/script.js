@@ -1,18 +1,16 @@
-// Variables global Scope
 var timeEl = document.querySelector(".time")
 var startButtonEl = document.querySelector(".start-button")
-    //var QuestionsE1 = document.querySelector("#question").hidden = true;
 var answersContainerEl = document.querySelector(".choice-container");
 var boxContainerEl = document.querySelector(".box-container");
 var startContainerEl = document.querySelector(".start-container")
 var questionTextEl = document.querySelector("#question");
+
 var choice1 = document.getElementById('choice1')
 var choice2 = document.getElementById('choice2')
 var choice3 = document.getElementById('choice3')
 var choice4 = document.getElementById('choice4')
 var storeContainerEl = document.getElementById('score-container')
-    //var buttonQuestion = document.querySelector(".button")
-    //console.log(buttonQuestion)
+
 var questions = [{
         question: "Rea·gan·om·ics, also known as:",
         choice1: "Chaos Theory",
@@ -62,10 +60,9 @@ var questions = [{
         choice4: "4",
         correct: "B",
     },
-
 ]
 
-var secondsLeft = 60;
+var secondsLeft = 50;
 var score = 0;
 
 answersContainerEl.style.display = 'none'
@@ -74,8 +71,7 @@ storeContainerEl.style.display = 'none'
 var lastQuestionIndex = questions.length;
 let currentQuestion = 0
 
-
-// Render Questions
+// function to create questions
 function makeQuestion() {
     console.log("makeQuestion", currentQuestion)
     console.log(choice1)
@@ -88,7 +84,7 @@ function makeQuestion() {
     gameOver()
 }
 
-//Start Game Function
+// start game function
 function startQuiz() {
     startContainerEl.style.display = 'none'
     answersContainerEl.style.display = 'block'
@@ -97,9 +93,7 @@ function startQuiz() {
     makeQuestion()
 }
 
-
-
-// Game Over Function
+// game over unction
 function gameOver() {
     if (currentQuestion > 4) {
         answersContainerEl.style.display = 'none'
@@ -107,6 +101,7 @@ function gameOver() {
         timeEl.style.display = 'none'
         submit()
     }
+
     if (secondsLeft <= 0) {
         clearInterval(timerInterval);
         timeEl.style.display = 'none'
@@ -116,10 +111,8 @@ function gameOver() {
     }
 }
 
-
-// check if answers are correct and increment score. 
+// check and validate or penalize answers 
 function rightOrWrong(answer) {
-    // Chice 1
     if (answer == questions[currentQuestion].correct) {
         score = score + 20
 
@@ -133,30 +126,23 @@ function rightOrWrong(answer) {
         makeQuestion()
     }
 
-
     console.log(score)
-
 }
 
-// Time function
+// time function
 function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
-        // if time ran out
-
     }, 1000);
     return;
 }
 
-// Function for submmit. 
+// submit function 
 function submit() {
     storeContainerEl.style.display = 'block'
-        // var scoreTextEl = document.createElement('h3')
-        // scoreTextEl.classList.add('scoreTextEl')
     var scoreTextEl = document.getElementById('scoreText')
     scoreTextEl.innerText = "Your Score is " + score;
-    // storeContainerEl.appendChild(scoreTextEl)
     var submitButtonEl = document.createElement('button')
     submitButtonEl.classList.add('submitButtonEl')
     submitButtonEl.innerHTML = "Submit"
@@ -164,6 +150,5 @@ function submit() {
 
 }
 
-
-// attach element to start te start game function
+// add event listener
 startButtonEl.addEventListener("click", startQuiz)
